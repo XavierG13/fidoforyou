@@ -18,8 +18,6 @@ $(document).ready(function () {
     queryUrl = queryUrl + book + care + apiKey;
     // console.log(queryUrl);
 
-    // for (let i = 0; i < results.length; i++)
-
     $.ajax({
       url: queryUrl,
       method: "GET",
@@ -30,7 +28,6 @@ $(document).ready(function () {
       var results = bookResults.items;
       console.log(results);
 
-      // var i = 0;
       for (var i = 0; i < results.length; i++) {
         var currentArrayItem = results[i];
         console.log(currentArrayItem);
@@ -50,21 +47,28 @@ $(document).ready(function () {
 
         results[i].innerHTML = "";
 
-        // this function will create the card with the information of title, author, and image of the book
+        // this function will create the card with the information of title, author, image of the book, and link to the book
         function buildCard(bookObject) {
-          var card = $("<div>").addClass("card");
+          var card = $("<div>").addClass("card col-md-4");
           var cardBody = $("<div>")
-            .addClass("card-body-1 card-title font-weight-bold")
+            .addClass("card-body card-title font-weight-bold")
             .text(bookObject.volumeInfo.title);
           console.log(bookObject.volumeInfo.title);
-          var cardAuthor = $("<p>").addClass("author").text(bookObject.volumeInfo.authors)
+          var cardAuthor = $("<p>")
+            .addClass("author")
+            .text(bookObject.volumeInfo.authors);
           var cardImg = $("<img>")
             .width(200)
             .height(200)
             .addClass("book-image")
             .attr("src", bookObject.volumeInfo.imageLinks.thumbnail);
+          var cardLink = $("<a>")
+            .addClass("book-link")
+            .attr("target", "_blank")
+            .text("Click for book info!")
+            .attr("href", bookObject.volumeInfo.previewLink);
 
-          $(card).append(cardBody,cardAuthor, cardImg);
+          $(card).append(cardBody, cardAuthor, cardImg, cardLink);
           $(bookResultsEl).append(card);
         }
       }
@@ -78,3 +82,9 @@ $(document).ready(function () {
     currentBookCount = 0;
   });
 });
+
+// this is the html i used to append the js
+
+// <div class="container">
+// <div class="row" id="book-results"></div>
+// </div>
