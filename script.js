@@ -101,12 +101,14 @@ $(document).ready(function () {
       $(".start-btn").on("click", function () {
         currentQuestion.textContent = questionDis[0].question;
         questionCount = 0;
+        // display each choices content for each question
         choice1.textContent = questionDis[questionCount].choices[0];
         choice2.textContent = questionDis[questionCount].choices[1];
         choice3.textContent = questionDis[questionCount].choices[2];
 
         console.log(currentQuestion)
     });
+    
     $(".choice-1").on("click", function () {
         // storing  question 1 answer
         userChoice[questionCount] = questionDis[questionCount].choices[0];
