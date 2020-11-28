@@ -97,11 +97,8 @@ $(document).ready(function () {
     // LISTENERS
     // =====================================================================
 
-    // FUNCTIONS
-    // =====================================================================
-
-    // on start
-    $(".start-btn").on("click", function () {
+      // on start quiz event
+      $(".start-btn").on("click", function () {
         currentQuestion.textContent = questionDis[0].question;
         questionCount = 0;
         choice1.textContent = questionDis[questionCount].choices[0];
@@ -119,6 +116,7 @@ $(document).ready(function () {
         // storing  question 1 answer
         userChoice[questionCount] = questionDis[questionCount].choices[1];
         console.log(userChoice)
+        
     });
     $(".choice-3").on("click", function () {
         // storing  question 1 answer
@@ -126,16 +124,9 @@ $(document).ready(function () {
         console.log(userChoice)
     });
 
-    // console.log(currentQuestion)
+    // console.log(currentQuestion)cd
 
-    // choice1.textContent = questionDis[i].choices[0];
-    // choice2.textContent = questionDis[i].choices[1];
-    // choice3.textContent = questionDis[i].choices[2];
-
-    // renderQuestion();
-    // console.log(questionDis[i]);
-
-    // on next
+    // on to next question
     $(".next-question").on("click", function () {
         if (questionCount < 2)
             questionCount++;
@@ -148,6 +139,11 @@ $(document).ready(function () {
         choice3.textContent = questionDis[questionCount].choices[2];
     })
 
+
+    // FUNCTIONS
+    // =====================================================================
+
+  
 
 
     // console.log(currentQuestion)
