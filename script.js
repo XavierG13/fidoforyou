@@ -2,30 +2,32 @@ $(document).ready(function () {
     // alert("hello world")
 
     // VARIABLES
-    // =====================================================================\\
+    // =====================================================================
+
     // quiz question count
-    var questionCount = 0;
+    var questionCount;
+    // current question display
+    var currentQuestion = $(".current-question")
+    // choice options
+    var choice1 = $(".choice-1")
+    var choice2 = $(".choice-2")
+    var choice3 = $(".choice-3")
+    // users choice
+    var userChoice = [];
     // quiz questions
-    var questions = [
+    var questionDis = [
         {
-            question1: "What size dog are you looking for?",
-            choice1: "small",
-            choice2: "medium",
-            choice3: "large",
+            question: "What size dog are you looking for?",
+            choices: ["Small", "Medium", "Large"]
         },
         {
-            question2: "What kind of temperment are you looking for?",
-            choice1: "Friendly",
-            choice2: "Obedient",
-            choice3: "Independent",
-            choice4: "Fearless"
+            question: "What kind of temperment are you looking for?",
+            choices: ["Friendly", "Courgeous", "Intelligent",]
         },
         {
-            question2: "What kind of activity are you looking for?",
-            choice1: "Herding",
-            choice2: "Guarding",
-            choice3: "Working",
-            choice4: "Sporting"
+            question: "What kind of activity are you looking for?",
+            choices: ["Working", "Herding", "Hound"]
+
         }
     ]
     // options of dog breeds and information
@@ -98,24 +100,69 @@ $(document).ready(function () {
     // FUNCTIONS
     // =====================================================================
 
-    // questions for loop
-    for (var i = 0; i < questions.length; i++) {
-        var currentQuestion = questions[i];
-        console.log(questions)
+    // on start
+    $(".start-btn").on("click", function () {
+        currentQuestion.textContent = questionDis[0].question;
+        questionCount = 0;
+        choice1.textContent = questionDis[questionCount].choices[0];
+        choice2.textContent = questionDis[questionCount].choices[1];
+        choice3.textContent = questionDis[questionCount].choices[2];
 
-        if (currentQuestion[0]) {
+        console.log(currentQuestion)
+    });
+    $(".choice-1").on("click", function () {
+        // storing  question 1 answer
+        userChoice[questionCount] = questionDis[questionCount].choices[0];
+        console.log(userChoice)
+    });
+    $(".choice-2").on("click", function () {
+        // storing  question 1 answer
+        userChoice[questionCount] = questionDis[questionCount].choices[1];
+        console.log(userChoice)
+    });
+    $(".choice-3").on("click", function () {
+        // storing  question 1 answer
+        userChoice[questionCount] = questionDis[questionCount].choices[2];
+        console.log(userChoice)
+    });
+
+    // console.log(currentQuestion)
+
+    // choice1.textContent = questionDis[i].choices[0];
+    // choice2.textContent = questionDis[i].choices[1];
+    // choice3.textContent = questionDis[i].choices[2];
+
+    // renderQuestion();
+    // console.log(questionDis[i]);
+
+    // on next
+    $(".next-question").on("click", function () {
+        if (questionCount < 2)
+            questionCount++;
+        else {
+            questionCount = 0
         }
-    }
+        console.log(questionCount)
+        choice1.textContent = questionDis[questionCount].choices[0];
+        choice2.textContent = questionDis[questionCount].choices[1];
+        choice3.textContent = questionDis[questionCount].choices[2];
+    })
 
-     // ajax call to fetch breed image to dogCEO api
-    var  breeds = ["germanshepherd", "husky", "stbernard", "beagle", "doberman", "malinois", "greyhound", "collie", "boxer", "poodle"]
+
+
+    // console.log(currentQuestion)
+
+    // store user choice selected
+
+    // ajax call to fetch breed image to dogCEO api
+    var breeds = ["germanshepherd", "husky", "stbernard", "beagle", "doberman", "malinois", "greyhound", "collie", "boxer", "poodle"]
     var selectedBreed = "collie"
     var queryURL = "https://dog.ceo/api/breed/" + selectedBreed + "/images"
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (dogRes) {
-        console.log(dogRes.message[0])
+        // console.log(dogRes.message[0])
     });
 
 
