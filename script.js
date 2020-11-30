@@ -131,7 +131,6 @@ $(document).ready(function () {
         else {
             (questionIndex >= 2)
             questionIndex = 0;
-
         }
         console.log(questionIndex)
         // display  choices content for each question
@@ -150,8 +149,7 @@ $(document).ready(function () {
         var currentQuestion = questionDis[questionIndex];
         // displays question based on the index/number
         questionTitle.text(currentQuestion.question);
-        console.log(currentQuestion)
-        
+        console.log(currentQuestion) 
     }
 
     // ajax call to fetch breed image to dogCEO api
