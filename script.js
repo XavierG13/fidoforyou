@@ -3,7 +3,6 @@ $(document).ready(function () {
 
     // VARIABLES
     // =====================================================================
-
     // quiz question count
     var questionIndex = 0;
     // current question display
@@ -98,58 +97,84 @@ $(document).ready(function () {
     // LISTENERS
     // =====================================================================
     // on start quiz event
+
+
+
     $(".start-btn").on("click", function () {
+        // hide quiz info 
+   $(".quiz-info").fadeToggle(10);
+       
         // display  choices content for each question
         choice1.text(questionDis[questionIndex].choices[0]);
         choice2.text(questionDis[questionIndex].choices[1]);
         choice3.text(questionDis[questionIndex].choices[2]);
         renderQuestion();
+
     });
     // first choice selection click event
     $(".choice-1").on("click", function () {
         // saves first selection content as string
         userChoice[questionIndex] = questionDis[questionIndex].choices[0];
-        console.log(userChoice)
+        // console.log(userChoice)
     });
     // second choice selection click event
     $(".choice-2").on("click", function () {
         // saves second selection content as string
         userChoice[questionIndex] = questionDis[questionIndex].choices[1];
-        console.log(userChoice)
+        // console.log(userChoice)
     });
     // thirds choice selection click event
     $(".choice-3").on("click", function () {
         // saves third selection content as string
         userChoice[questionIndex] = questionDis[questionIndex].choices[2];
-        console.log(userChoice)
+        // console.log(userChoice)
     });
 
-    // on to next question
+
+    // on to next question click event 
     $(".next-question").on("click", function () {
         if (questionIndex < 2)
             questionIndex++;
+
         else {
             (questionIndex >= 2)
-            questionIndex = 0;
+            quizCompleted();
+            console.log(questionIndex)
         }
         console.log(questionIndex)
         // display  choices content for each question
         choice1.text(questionDis[questionIndex].choices[0]);
         choice2.text(questionDis[questionIndex].choices[1]);
         choice3.text(questionDis[questionIndex].choices[2]);
-
         renderQuestion();
-    })
+    });
+
+    // view results click event
+    $(".view-results").on("click", function (){
+
+    });
+
+
+// See Results (breed suggestions)
 
     // FUNCTIONS
     // =====================================================================
+
     // function to display quiz questions accordingly
     function renderQuestion() {
         // variable to go through question in questionDis object
         var currentQuestion = questionDis[questionIndex];
         // displays question based on the index/number
         questionTitle.text(currentQuestion.question);
-        console.log(currentQuestion) 
+        // console.log(currentQuestion) 
+    }
+
+    // function takes user to dog breed suggestion based on selections
+    function quizCompleted() {
+        var breedSuggestion = $(".breed-suggestion")
+        console.log(quizCompleted)
+
+
     }
 
     // ajax call to fetch breed image to dogCEO api
