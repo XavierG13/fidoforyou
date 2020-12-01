@@ -5,16 +5,17 @@ $(document).ready(function () {
     // =====================================================================
 
     // quiz question count
-    var questionCount;
+    var questionIndex = 0;
     // current question display
-    var currentQuestion = $(".current-question");
+    var questionTitle = $(".question-title");
     // choice options
     var choice1 = $(".choice-1");
     var choice2 = $(".choice-2");
     var choice3 = $(".choice-3");
     // users choice
     var userChoice = [];
-    var dogReturn = [];
+    // suggested breed
+    var returnDog = []
     // quiz questions
     var questionDis = [
         {
@@ -31,7 +32,7 @@ $(document).ready(function () {
 
         }
     ]
-    // options of dog breeds and information 
+    // dog breed possible suggestions
     var dogBreed = [
         {
             name: "Husky",
@@ -96,67 +97,60 @@ $(document).ready(function () {
     ]
     // LISTENERS
     // =====================================================================
-
     // on start quiz event
     $(".start-btn").on("click", function () {
-        // for loop though questions
-        for (var i = 0; i < questionDis.length; i++) {
-            currentQuestion = questionDis[i].question;
-
-            console.log(currentQuestion)
-            questionCount = 0;
-
-            if (currentQuestion < 2)
-                questionCount++;
-            else {
-                (currentQuestion >= 2)
-                dogReturn;
-            }
-        }
-        // display each choices content for each question
-        choice1.text(questionDis[questionCount].choices[0]);
-        choice2.text(questionDis[questionCount].choices[1]);
-        choice3.text(questionDis[questionCount].choices[2]);
+        // display  choices content for each question
+        choice1.text(questionDis[questionIndex].choices[0]);
+        choice2.text(questionDis[questionIndex].choices[1]);
+        choice3.text(questionDis[questionIndex].choices[2]);
+        renderQuestion();
     });
-
-    // 1) display question
-    // 2) attach andswer to its specific question
-    // 3) store selection in dorReturn funciton
-    // 4) compare selection to dogBreed object of arrays
-
+    // first choice selection click event
     $(".choice-1").on("click", function () {
-        userChoice[questionCount] = questionDis[questionCount].choices[0];
-
+        // saves first selection content as string
+        userChoice[questionIndex] = questionDis[questionIndex].choices[0];
         console.log(userChoice)
     });
+    // second choice selection click event
     $(".choice-2").on("click", function () {
-        // storing  question 1 answer
-        userChoice[questionCount] = questionDis[questionCount].choices[1];
+        // saves second selection content as string
+        userChoice[questionIndex] = questionDis[questionIndex].choices[1];
         console.log(userChoice)
     });
+    // thirds choice selection click event
     $(".choice-3").on("click", function () {
-        // storing  question 1 answer
-        userChoice[questionCount] = questionDis[questionCount].choices[2];
+        // saves third selection content as string
+        userChoice[questionIndex] = questionDis[questionIndex].choices[2];
         console.log(userChoice)
     });
-    // console.log(currentQuestion)
 
     // on to next question
     $(".next-question").on("click", function () {
-        if (questionCount < 2)
-            questionCount++;
+        if (questionIndex < 2)
+            questionIndex++;
         else {
-            questionCount = 0
+            (questionIndex >= 2)
+            questionIndex = 0;
         }
-        console.log(questionCount)
-        // display each button content
-        choice1.text(questionDis[questionCount].choices[0]);
-        choice2.text(questionDis[questionCount].choices[1]);
-        choice3.text(questionDis[questionCount].choices[2]);
+        console.log(questionIndex)
+        // display  choices content for each question
+        choice1.text(questionDis[questionIndex].choices[0]);
+        choice2.text(questionDis[questionIndex].choices[1]);
+        choice3.text(questionDis[questionIndex].choices[2]);
+
+        renderQuestion();
     })
 
     // FUNCTIONS
     // =====================================================================
+    // function to display quiz questions accordingly
+    function renderQuestion() {
+        // variable to go through question in questionDis object
+        var currentQuestion = questionDis[questionIndex];
+        // displays question based on the index/number
+        questionTitle.text(currentQuestion.question);
+        console.log(currentQuestion) 
+    }
 
     // ajax call to fetch breed image to dogCEO api
     // var breeds = ["germanshepherd", "husky", "stbernard", "beagle", "doberman", "malinois", "greyhound", "collie", "boxer", "poodle"]
