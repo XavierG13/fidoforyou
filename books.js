@@ -1,7 +1,7 @@
 $(document).ready(function () {
   var apiKey = "&appid=AIzaSyA64b1DkpGo3cvuJMzoxLGXlfF9L6Kl4ME";
 
-  var submit = document.getElementById("submitBtn");
+  var dogName = document.getElementById("breedName");
   var input = document.getElementById("searchBook");
 
   var bookResultsEl = document.getElementById("book-results");
@@ -75,9 +75,10 @@ $(document).ready(function () {
     });
   }
 
-  $(submit).click(function () {
+  $(dogName).click(function () {
     // console.log($(input).val());
-    searchBooks($(input).val());
+    // searchBooks($(input).val());
+    searchBooks($("#breedName").text($(input).val()));
     $("#book-results").empty();
     currentBookCount = 0;
   });
