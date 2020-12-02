@@ -1,6 +1,5 @@
 $(document).ready(function () {
-    // alert("hello world")
-
+    
     // VARIABLES
     // =====================================================================
     // quiz question count
@@ -158,7 +157,6 @@ $(document).ready(function () {
 
     // FUNCTIONS
     // ====================================================================
-
     // hide quiz results 
     $(".quiz-results").fadeToggle(10);
     // function to display quiz questions accordingly
@@ -188,7 +186,7 @@ $(document).ready(function () {
         }
         // console.log(suggestedDogs)
     }
-    
+
     // ajax call to fetch breed image from dogCEO api
     function getDogImage(userSelectedBreed) {
         userSelectedBreed = userSelectedBreed.toLowerCase()
@@ -211,7 +209,6 @@ $(document).ready(function () {
             console.log("currentDogBreed", currentDogBreed)
         }
     };
-
 
     function dogImgCard(breedImg) {
         var card = $("<div>").addClass("img-card");
