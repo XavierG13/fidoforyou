@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    
+
     // VARIABLES
     // =====================================================================
     // quiz question count
@@ -207,16 +207,19 @@ $(document).ready(function () {
             var breedImg = getDogImage(currentDogBreed);
             // console.log("breedImg", breedImg)
             console.log("currentDogBreed", currentDogBreed)
+
+            dogImgCard();
         }
+
+        function dogImgCard(breedImg) {
+            var card = $("<div>").addClass("img-card");
+            var cardBody = $("<div>").addClass("img-card-body").text(breedImg);
+            var dogImage = $("<img>").width(300).height(300).addClass("dog-image").attr("src", image);
+
+            $(card).append(cardBody, dogImage);
+            $(".quiz-results").append(card);
+        }
+
     };
-
-    function dogImgCard(breedImg) {
-        var card = $("<div>").addClass("img-card");
-        var cardBody = $("<div>").addClass("img-card-body").text(breedImg);
-        var dogImage = $("<img>").width(300).height(300).addClass("dog-image").attr("src", image);
-
-        $(card).append(cardBody, dogImage);
-        $(".quiz-results").append(card);
-    }
 
 });
