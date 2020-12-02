@@ -3,7 +3,6 @@ $(document).ready(function () {
 
     // VARIABLES
     // =====================================================================
-
     // quiz question count
     var questionIndex = 0;
     // current question display
@@ -15,7 +14,7 @@ $(document).ready(function () {
     // users choice
     var userChoice = [];
     // suggested breed
-    var returnDog = []
+    var returnDog = [];
     // quiz questions
     var questionDis = [
         {
@@ -95,61 +94,96 @@ $(document).ready(function () {
             breedGroup: "Working"
         },
     ]
+
     // LISTENERS
     // =====================================================================
     // on start quiz event
     $(".start-btn").on("click", function () {
+
+        // hide quiz info 
+        $(".quiz-info").fadeToggle(10);
+
         // display  choices content for each question
         choice1.text(questionDis[questionIndex].choices[0]);
         choice2.text(questionDis[questionIndex].choices[1]);
         choice3.text(questionDis[questionIndex].choices[2]);
+        // calling function renderQuestion
         renderQuestion();
     });
+
     // first choice selection click event
     $(".choice-1").on("click", function () {
         // saves first selection content as string
         userChoice[questionIndex] = questionDis[questionIndex].choices[0];
-        console.log(userChoice)
+        // console.log(userChoice)
+        userChoice.push($("this").text())
     });
+
     // second choice selection click event
     $(".choice-2").on("click", function () {
         // saves second selection content as string
         userChoice[questionIndex] = questionDis[questionIndex].choices[1];
-        console.log(userChoice)
+        // console.log(userChoice)
+         userChoice.push($("this").text())
     });
+
     // thirds choice selection click event
     $(".choice-3").on("click", function () {
         // saves third selection content as string
         userChoice[questionIndex] = questionDis[questionIndex].choices[2];
-        console.log(userChoice)
+        // console.log(userChoice)
+         userChoice.push($("this").text())
     });
 
-    // on to next question
+    // on to next question click event 
     $(".next-question").on("click", function () {
         if (questionIndex < 2)
             questionIndex++;
+
         else {
             (questionIndex >= 2)
-            questionIndex = 0;
+            quizCompleted();
+            console.log(questionIndex)
         }
         console.log(questionIndex)
         // display  choices content for each question
         choice1.text(questionDis[questionIndex].choices[0]);
         choice2.text(questionDis[questionIndex].choices[1]);
         choice3.text(questionDis[questionIndex].choices[2]);
-
+        // calling function renderQuestion
         renderQuestion();
-    })
+    });
+
+    // view results click event
+    $(".view-results").on("click", function () {
+        $(".questions-section").fadeToggle(10);
+        breedSuggestions();
+        console.log(returnDog)
+    });
 
     // FUNCTIONS
-    // =====================================================================
+    // ====================================================================
+
+     // hide quiz results 
+     $(".quiz-results").fadeToggle(10);
+
     // function to display quiz questions accordingly
     function renderQuestion() {
         // variable to go through question in questionDis object
         var currentQuestion = questionDis[questionIndex];
         // displays question based on the index/number
         questionTitle.text(currentQuestion.question);
-        console.log(currentQuestion) 
+        // console.log(currentQuestion) 
+    }
+
+    // function takes user to dog breed suggestion based on selections
+    function breedSuggestions() {
+        for (var i = 0; i < dogBreed.length; i++) {
+           var breedVal = Object.values(dogBreed[i])
+           if (breedVal.includes(userChoice[0]) && ((breedVal.includes(userChoice[1])) || (breedVal.includes(userChoice[2])))){
+               returnDog.push(dogBreed[i])
+           }
+        }
     }
 
     // ajax call to fetch breed image to dogCEO api
