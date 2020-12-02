@@ -14,92 +14,60 @@
         integrity="sha512-9cXmvmK1gIDw3Tol6Xg/1SUls/CvBMgedu1aDjT519sQzy7jk+LoezyQqlzClW2LgXww4xEyuqtofg7PtWteLQ=="
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
-
+    <link src= assets/pups.jpg>
+    
 
 
 </head>
 
 <body>
 
-    <div class="container" id="info">
-        <header>FidoForYou</header>
-        <p>The Best Dog 4 U</p>
+    
+    <div class="quiz-info">
+         <a href="https://ibb.co/fYMptvY"><img src="https://i.ibb.co/Gv72kTv/pups.jpg" alt="pups"></a>
+         <div class= "description">
+            <p> Looking to find out what dog breed is best for you?
+                You've come to the right place and we are so excited to help suggest the right furry family member for you!
+            </p>
+
+            <p>Your schedule, activities, and even your home can help determine the best dog breed for you. Some people
+                would prefer a small lap dog to spend time on the couch with, others could prefer a larger and more work
+                focused dog for home protection and work related activites. </p>
+            <p>Regardless of your situatation we are glad to help you make this important decision. </p>
+            <button type="button" class="success button" id="start-btn">Start</button>
+         </div>
+     
     </div>
 
-    <button type="button" class="success button">Start</button>
 
     <div class="grid-y" style="height: 500px;">
         <div class="cell small-6 medium-8 large-4">
-            question displayed here
+            <button class="choice-1"></button>
+            <button class="choice-2"></button>
+            <button class="choice-3"></button>
+            <button class="next-question"></button>
+            <button class="view-results"></button>
         </div>
-        <div class="cell small-6 medium-8 large-2">
-            choice 1
-        </div>
-        <div class="cell small-6 medium-8 large-2">
-            choice 2
-        </div>
-        <div class="cell small-6 medium-8 large-2">
-            choice 3
+        
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class = "quiz-results"></div>
         </div>
     </div>
 
-    <div class="container2" id="dogReturn">
-        <h1>Suggested Breeds</h1>
-        <div class="grid-x">
-            <div class="cell auto">
-                <div class="card" style="width: 300px;">
-                    <div class="card-divider">
-                        <h4>I'm featured</h4>
-                    </div>
-                    <img src="assets/img/generic/rectangle-1.jpg">
-                    <div class="card-section">
-                        <p>This card makes use of the card-divider element.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="cell auto">
-                <div class="card" style="width: 300px;">
-                    <div class="card-divider">
-                        <h4>I'm featured</h4>
-                    </div>
-                    <img src="assets/img/generic/rectangle-1.jpg">
-                    <div class="card-section">
-                        <p>This card makes use of the card-divider element.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="cell auto">
-                <div class="card" style="width: 300px;">
-                    <div class="card-divider">
-                        <h4>I'm featured</h4>
-                    </div>
-                    <img src="assets/img/generic/rectangle-1.jpg">
-                    <div class="card-section">
-                        <p>This card makes use of the card-divider element.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
+    </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row" id="book-results"></div>
     </div>
 
 
 </body>
 
 </html>
-
-
-
-
-
-
-// title slogan
-
-card 1st displays modal prompting quiestions
-click to start quiestions
-2nd quiestions displays
-
-benneath quiestion qill be 3 blicks multiple quiestions
-
-
-3rd js to store input
-4th the dog api
