@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    
+
     // VARIABLES
     // =====================================================================
     // quiz question count
@@ -204,19 +204,25 @@ $(document).ready(function () {
         for (var i = 0; i < suggestedDogs.length; i++) {
             // variable declared to get the "breed name" from suggestedDogs array at position 0 
             var currentDogBreed = suggestedDogs[i][0]
-            var breedImg = getDogImage(currentDogBreed);
+            // var breedImg = getDogImage(currentDogBreed);
             // console.log("breedImg", breedImg)
             console.log("currentDogBreed", currentDogBreed)
+
+            function dogImgCard(breedImg) {
+                var breedImg = getDogImage(currentDogBreed);
+                var card = $("<div>").addClass("img-card");
+                var cardBody = $("<div>").addClass("img-card-body").text(breedImg);
+                var dogImage = $("<img>").width(300).height(300).addClass("dog-image").attr("src", image);
+    
+                $(card).append(cardBody, dogImage);
+                $(".quiz-results").append(card);
+            }
+
+            dogImgCard();
         }
+
+       
+
     };
-
-    function dogImgCard(breedImg) {
-        var card = $("<div>").addClass("img-card");
-        var cardBody = $("<div>").addClass("img-card-body").text(breedImg);
-        var dogImage = $("<img>").width(300).height(300).addClass("dog-image").attr("src", image);
-
-        $(card).append(cardBody, dogImage);
-        $(".quiz-results").append(card);
-    }
 
 });
