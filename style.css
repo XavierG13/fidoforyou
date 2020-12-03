@@ -8,23 +8,7 @@ body {
     margin-right: 100px;
 }
 
-#info {
-    text-align: center;
-    height: 100px;
-    font-size: 50px;
-    display: flex,center;
-    margin-left: 100px;
-    margin-right: 100px;
-}
 
-.top-center{
-    position: absolute;
-    top: 75px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 50px;
-    display: inline-block;
-}
 
 img {
     border: solid 2px black;
@@ -40,6 +24,7 @@ img {
 .description {
     border-style: dashed;
     background-color:white;
+    font-family: 'Nerko One', cursive;
 
 }
 
@@ -53,3 +38,55 @@ a img {
     border-radius: 50%;
     border-color: black;
 }
+
+h3 {
+    font-family: 'Nerko One', cursive;
+}
+
+.questions-section {
+    padding: 10px;
+    margin: 10px auto;
+    text-align: center;
+    position: relative;
+    font-family: 'Nerko One', cursive;
+    border-radius: 0 0 50px 50px;
+    background-color: white;
+    width: 50%;
+    margin-top: 300px;
+}
+
+.choice-1 {
+    background-color:pink;
+    border:solid;
+    border-color:black;
+}
+
+.choice-2 {
+    background-color:pink;
+    border:solid;
+    border-color:black;
+}
+
+.choice-3 {
+    background-color:pink;
+    border:solid;
+    border-color:black;
+}
+
+.next-question {
+    background-color:rgb(97, 43, 52);
+    border:solid;
+    border-color:black;
+}
+
+.view-results {
+    background-color:rgb(177, 5, 33);
+    border:solid;
+    border-color:black;
+}
+
+
+
+
+
+    
