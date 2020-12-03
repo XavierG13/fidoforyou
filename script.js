@@ -95,11 +95,6 @@ $(document).ready(function () {
         },
     ]
 
-
-    // // hide quiz results 
-    // questionsSection.style.display = "none";
-    // // hide question-section
-    // quizResults.style.display = "none";
     // LISTENERS
     // =====================================================================
     // on start quiz event
@@ -202,7 +197,7 @@ $(document).ready(function () {
             method: "GET",
             async: false
         });
-        return result.responseJSON.message[2];
+        return result.responseJSON.message[3];
     }
 
     // function includes for loop that goes through suggested dog array  
@@ -211,16 +206,18 @@ $(document).ready(function () {
             // variable declared to get the "breed name" from suggestedDogs array at position 0 
             var currentDogBreed = suggestedDogs[i][0]
             var breedImg = getDogImage(currentDogBreed);
-            console.log("breedImg", breedImg)
+            console.log("breed-Img", breedImg)
             console.log("currentDogBreed", currentDogBreed)
+            dogImgCard(breedImg);
         }
     };
 
-
+// creating a dog image card in HTML
     function dogImgCard(breedImg) {
         var card = $("<div>").addClass("img-card");
         var cardBody = $("<div>").addClass("img-card-body").text(breedImg);
-        var dogImage = $("<img>").width(300).height(300).addClass("dog-image").attr("src", image);
+        // var image = 
+        var dogImage = $("<img>").width(300).height(300).addClass("dog-image").attr("src", breedImg);
 
         $(card).append(cardBody, dogImage);
         $(".quiz-results").append(card);
