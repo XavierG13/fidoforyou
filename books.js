@@ -1,7 +1,7 @@
 $(document).ready(function () {
   var apiKey = "&appid=AIzaSyA64b1DkpGo3cvuJMzoxLGXlfF9L6Kl4ME";
 
-  var dogName = document.querySelector(".breed-name");
+  // var dogName = document.querySelector(".breed-name");
   // var input = document.getElementById("searchBook");
 
   var bookResultsEl = document.getElementById("book-results");
@@ -75,10 +75,10 @@ $(document).ready(function () {
     });
   }
 
-  $(dogName).click(function () {
+  $(".breed-name").click(function () {
     // console.log($(input).val());
     // searchBooks($(input).val());
-    searchBooks(currentDogBreed.val());
+    searchBooks($(this).val());
     $("#book-results").empty();
     currentBookCount = 0;
   });
