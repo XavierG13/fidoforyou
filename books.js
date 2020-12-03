@@ -78,7 +78,7 @@ $(document).ready(function () {
   $(dogName).click(function () {
     // console.log($(input).val());
     // searchBooks($(input).val());
-    searchBooks($("#breedName").text($(input).val()));
+    searchBooks($(".breedName").text($(input).val()));
     $("#book-results").empty();
     currentBookCount = 0;
   });
