@@ -88,6 +88,8 @@ h3 {
     background-color:pink;
     border:solid 2px;
     border-color:black;
+    position: relative;
+    text-align: center;
 }
 
 
