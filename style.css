@@ -13,6 +13,7 @@ body {
 img {
     border: solid 2px black;
     border-radius: 50%;
+    margin-top: 300px;
     
 }
 
@@ -90,6 +91,7 @@ h3 {
     border-color:black;
     position: relative;
     text-align: center;
+    padding: 10px;
 }
 
 
