@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    // alert("hello world")
 
     // VARIABLES
     // =====================================================================
@@ -6,6 +7,8 @@ $(document).ready(function () {
     var questionIndex = 0;
     // current question display
     var questionTitle = $(".question-title");
+    var questionsSection = $(".questions-section");
+    var quizResults = $(".quiz-results")
     // choice options
     var choice1 = $(".choice-1");
     var choice2 = $(".choice-2");
@@ -26,7 +29,6 @@ $(document).ready(function () {
         {
             question: "What kind of activity are you looking for?",
             choices: ["Working", "Herding", "Hound"]
-
         }
     ]
     // dog breed possible suggestions
@@ -92,6 +94,12 @@ $(document).ready(function () {
             breedGroup: "Working"
         },
     ]
+
+
+    // // hide quiz results 
+    // questionsSection.style.display = "none";
+    // // hide question-section
+    // quizResults.style.display = "none";
     // LISTENERS
     // =====================================================================
     // on start quiz event
@@ -110,7 +118,7 @@ $(document).ready(function () {
     $(".choice-1").on("click", function () {
         // saves first selection content as string
         userOptions[questionIndex] = questionDis[questionIndex].choices[0];
-        // console.log(userOptions)
+        console.log(userOptions)
         userOptions.push($("this").text())
     });
 
@@ -118,7 +126,7 @@ $(document).ready(function () {
     $(".choice-2").on("click", function () {
         // saves second selection content as string
         userOptions[questionIndex] = questionDis[questionIndex].choices[1];
-        // console.log(userOptions)
+        console.log(userOptions)
         userOptions.push($("this").text())
     });
 
@@ -126,7 +134,7 @@ $(document).ready(function () {
     $(".choice-3").on("click", function () {
         // saves third selection content as string
         userOptions[questionIndex] = questionDis[questionIndex].choices[2];
-        // console.log(userOptions)
+        console.log(userOptions)
         userOptions.push($("this").text())
     });
 
@@ -138,9 +146,9 @@ $(document).ready(function () {
         else {
             (questionIndex >= 2)
             breedSuggestions();
-            // console.log(questionIndex)
+            console.log(questionIndex)
         }
-        // console.log(questionIndex)
+        console.log(questionIndex)
         // display  choices content for each question
         choice1.text(questionDis[questionIndex].choices[0]);
         choice2.text(questionDis[questionIndex].choices[1]);
@@ -157,8 +165,6 @@ $(document).ready(function () {
 
     // FUNCTIONS
     // ====================================================================
-    // hide quiz results 
-    $(".quiz-results").fadeToggle(10);
     // function to display quiz questions accordingly
     function renderQuestion() {
         // variable to go through question in questionDis object
@@ -177,7 +183,7 @@ $(document).ready(function () {
         // for loop that goes thorough object of arrays
         for (var i = 0; i < dogBreed.length; i++) {
             breedVal.push(Object.values(dogBreed[i]))
-            // console.log(breedVal)
+            console.log(breedVal)
             // if statement to add the objecet that coditions apply to suggestedDogs array on line 176
             if (breedVal[i].includes(userOptions[0]) && ((breedVal[i].includes(userOptions[1])) || (breedVal[i].includes(userOptions[2])))) {
                 suggestedDogs.push(breedVal[i])
@@ -204,25 +210,20 @@ $(document).ready(function () {
         for (var i = 0; i < suggestedDogs.length; i++) {
             // variable declared to get the "breed name" from suggestedDogs array at position 0 
             var currentDogBreed = suggestedDogs[i][0]
-            // var breedImg = getDogImage(currentDogBreed);
-            // console.log("breedImg", breedImg)
+            var breedImg = getDogImage(currentDogBreed);
+            console.log("breedImg", breedImg)
             console.log("currentDogBreed", currentDogBreed)
-
-            function dogImgCard(breedImg) {
-                var breedImg = getDogImage(currentDogBreed);
-                var card = $("<div>").addClass("img-card");
-                var cardBody = $("<div>").addClass("img-card-body").text(breedImg);
-                var dogImage = $("<img>").width(300).height(300).addClass("dog-image").attr("src", image);
-    
-                $(card).append(cardBody, dogImage);
-                $(".quiz-results").append(card);
-            }
-
-            dogImgCard();
         }
-
-       
-
     };
+
+
+    function dogImgCard(breedImg) {
+        var card = $("<div>").addClass("img-card");
+        var cardBody = $("<div>").addClass("img-card-body").text(breedImg);
+        var dogImage = $("<img>").width(300).height(300).addClass("dog-image").attr("src", image);
+
+        $(card).append(cardBody, dogImage);
+        $(".quiz-results").append(card);
+    }
 
 });
