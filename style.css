@@ -57,25 +57,25 @@ h3 {
 
 .choice-1 {
     background-color:pink;
-    border:solid;
+    border:solid 2px;
     border-color:black;
 }
 
 .choice-2 {
     background-color:pink;
-    border:solid;
+    border:solid 2px;
     border-color:black;
 }
 
 .choice-3 {
     background-color:pink;
-    border:solid;
+    border:solid 2px;
     border-color:black;
 }
 
 .next-question {
     background-color:rgb(97, 43, 52);
-    border:solid;
+    border:solid 2px;
     border-color:black;
 }
 
