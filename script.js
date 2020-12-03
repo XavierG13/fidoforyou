@@ -15,6 +15,8 @@ $(document).ready(function () {
     var choice3 = $(".choice-3");
     // users breed Options
     var userOptions = [];
+    //  array that will hold matched 'dogBreed' from user selections
+    var suggestedDogs = [];
 
     // quiz questions
     var questionDis = [
@@ -113,7 +115,7 @@ $(document).ready(function () {
     $(".choice-1").on("click", function () {
         // saves first selection content as string
         userOptions[questionIndex] = questionDis[questionIndex].choices[0];
-        console.log(userOptions)
+        // console.log(userOptions)
         userOptions.push($("this").text())
     });
 
@@ -121,7 +123,7 @@ $(document).ready(function () {
     $(".choice-2").on("click", function () {
         // saves second selection content as string
         userOptions[questionIndex] = questionDis[questionIndex].choices[1];
-        console.log(userOptions)
+        // console.log(userOptions)
         userOptions.push($("this").text())
     });
 
@@ -129,7 +131,7 @@ $(document).ready(function () {
     $(".choice-3").on("click", function () {
         // saves third selection content as string
         userOptions[questionIndex] = questionDis[questionIndex].choices[2];
-        console.log(userOptions)
+        // console.log(userOptions)
         userOptions.push($("this").text())
     });
 
@@ -141,9 +143,9 @@ $(document).ready(function () {
         else {
             (questionIndex >= 2)
             breedSuggestions();
-            console.log(questionIndex)
+            // console.log(questionIndex)
         }
-        console.log(questionIndex)
+        // console.log(questionIndex)
         // display  choices content for each question
         choice1.text(questionDis[questionIndex].choices[0]);
         choice2.text(questionDis[questionIndex].choices[1]);
@@ -173,8 +175,6 @@ $(document).ready(function () {
     function breedSuggestions() {
         // array that will  hold values of 'dogBreed' array of objects declered on line 34
         var breedVal = [];
-        //  array that will hold matched 'dogBreed' from user selections
-        var suggestedDogs = [];
         // for loop that goes thorough object of arrays
         for (var i = 0; i < dogBreed.length; i++) {
             breedVal.push(Object.values(dogBreed[i]))
@@ -185,7 +185,7 @@ $(document).ready(function () {
                 renderDogImages(suggestedDogs);
             }
         }
-        // console.log(suggestedDogs)
+        console.log("breedSuggestions", breedSuggestions)
     }
 
     // ajax call to fetch breed image from dogCEO api
@@ -206,21 +206,36 @@ $(document).ready(function () {
             // variable declared to get the "breed name" from suggestedDogs array at position 0 
             var currentDogBreed = suggestedDogs[i][0]
             var breedImg = getDogImage(currentDogBreed);
-            console.log("breed-Img", breedImg)
-            console.log("currentDogBreed", currentDogBreed)
+            // console.log("breed-Img", breedImg)
+            // console.log("currentDogBreed", currentDogBreed)
             dogImgCard(breedImg);
+
+            function dogImgCard(breedImg) {
+                var card = $("<div>").addClass("img-card");
+                var cardBody = $("<div>").addClass("img-card-body");
+                // var image = 
+                var dogImage = $("<img>").width(300).height(300).addClass("dog-image").attr("src", breedImg);
+                var dogBtnName = $("<button>").addClass("breed-name").text(currentDogBreed);
+        
+        
+                $(card).append(cardBody, dogImage, dogBtnName);
+                $(".quiz-results").append(card);
+            }
+        
         }
     };
 
 // creating a dog image card in HTML
-    function dogImgCard(breedImg) {
-        var card = $("<div>").addClass("img-card");
-        var cardBody = $("<div>").addClass("img-card-body").text(breedImg);
-        // var image = 
-        var dogImage = $("<img>").width(300).height(300).addClass("dog-image").attr("src", breedImg);
+    // function dogImgCard(breedImg) {
+    //     var card = $("<div>").addClass("img-card");
+    //     var cardBody = $("<div>").addClass("img-card-body").text(breedImg);
+    //     // var image = 
+    //     var dogImage = $("<img>").width(300).height(300).addClass("dog-image").attr("src", breedImg);
+    //     var dogBtnName = $("<button>").addClass("breed-name").text(currentDogBreed);
 
-        $(card).append(cardBody, dogImage);
-        $(".quiz-results").append(card);
-    }
+
+    //     $(card).append(cardBody, dogImage, dogBtnName);
+    //     $(".quiz-results").append(card);
+    // }
 
 });
