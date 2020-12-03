@@ -209,33 +209,20 @@ $(document).ready(function () {
             // console.log("breed-Img", breedImg)
             // console.log("currentDogBreed", currentDogBreed)
             dogImgCard(breedImg);
-
-            function dogImgCard(breedImg) {
-                var card = $("<div>").addClass("img-card");
-                var cardBody = $("<div>").addClass("img-card-body");
-                // var image = 
-                var dogImage = $("<img>").width(300).height(300).addClass("dog-image").attr("src", breedImg);
-                var dogBtnName = $("<button>").addClass("breed-name").text(currentDogBreed);
-        
-        
-                $(card).append(cardBody, dogImage, dogBtnName);
-                $(".quiz-results").append(card);
-            }
-        
         }
     };
 
 // creating a dog image card in HTML
-    // function dogImgCard(breedImg) {
-    //     var card = $("<div>").addClass("img-card");
-    //     var cardBody = $("<div>").addClass("img-card-body").text(breedImg);
-    //     // var image = 
-    //     var dogImage = $("<img>").width(300).height(300).addClass("dog-image").attr("src", breedImg);
-    //     var dogBtnName = $("<button>").addClass("breed-name").text(currentDogBreed);
+    function dogImgCard(breedImg) {
+        var card = $("<div>").addClass("img-card");
+        var cardBody = $("<div>").addClass("img-card-body").text(breedImg);
+        // var image = 
+        var dogImage = $("<img>").width(300).height(300).addClass("dog-image").attr("src", breedImg);
+        var dogBtnName = $("<button>").addClass("breed-name").text(currentDogBreed);
 
 
-    //     $(card).append(cardBody, dogImage, dogBtnName);
-    //     $(".quiz-results").append(card);
-    // }
+        $(card).append(cardBody, dogImage, dogBtnName);
+        $(".quiz-results").append(card);
+    }
 
 });
