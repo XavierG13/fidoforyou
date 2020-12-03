@@ -81,7 +81,7 @@ h3 {
 
 .view-results {
     background-color:rgb(177, 5, 33);
-    border:solid;
+    border:solid 2px;
     border-color:black;
 }
 
