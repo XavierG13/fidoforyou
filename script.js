@@ -216,7 +216,13 @@ $(document).ready(function () {
                 // var image = 
                 var dogImage = $("<img>").width(300).height(300).addClass("dog-image").attr("src", breedImg);
                 var dogBtnName = $("<button>").addClass("breed-name").text(currentDogBreed);
-        
+                
+                $(".quiz-results").click(function () {
+                    console.log("hello")
+                    searchBooks($(this));
+                    $("#book-results").empty();
+                    currentBookCount = 0;
+                  });
         
                 $(card).append(cardBody, dogImage, dogBtnName);
                 $(".quiz-results").append(card);
@@ -224,18 +230,5 @@ $(document).ready(function () {
         
         }
     };
-
-// creating a dog image card in HTML
-    // function dogImgCard(breedImg) {
-    //     var card = $("<div>").addClass("img-card");
-    //     var cardBody = $("<div>").addClass("img-card-body").text(breedImg);
-    //     // var image = 
-    //     var dogImage = $("<img>").width(300).height(300).addClass("dog-image").attr("src", breedImg);
-    //     var dogBtnName = $("<button>").addClass("breed-name").text(currentDogBreed);
-
-
-    //     $(card).append(cardBody, dogImage, dogBtnName);
-    //     $(".quiz-results").append(card);
-    // }
 
 });
