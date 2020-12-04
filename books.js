@@ -83,9 +83,3 @@ $(document).ready(function () {
     currentBookCount = 0;
   });
 });
-
-// this is the html i used to append the js
-
-// <div class="container">
-// <div class="row" id="book-results"></div>
-// </div>
