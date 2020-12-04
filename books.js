@@ -76,7 +76,7 @@ $(document).ready(function () {
   }
 
   $(".breed-name").click(function () {
-    searchBooks($(this).text().val());
+    searchBooks($(this));
     $("#book-results").empty();
     currentBookCount = 0;
   });
