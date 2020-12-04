@@ -203,7 +203,7 @@ $(document).ready(function () {
                 var dogImage = $("<img>").width(300).height(300).addClass("dog-image").attr("src", breedImg);
                 var dogBtnName = $("<button>").addClass("breed-name").text(currentDogBreed);
                 $(".breed-name").click(function () {
-                    console.log("hello")
+                    console.log()
                     searchBooks($(this).text());
                     $("#book-results").empty();
                     currentBookCount = 0;
