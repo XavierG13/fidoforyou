@@ -1,5 +1,4 @@
-$(document).ready(function () {
-  var apiKey = "&appid=AIzaSyA64b1DkpGo3cvuJMzoxLGXlfF9L6Kl4ME";
+var apiKey = "&appid=AIzaSyA64b1DkpGo3cvuJMzoxLGXlfF9L6Kl4ME";
 
   // var dogName = document.querySelector(".breed-name");
   // var input = document.getElementById("searchBook");
@@ -75,9 +74,3 @@ $(document).ready(function () {
     });
   }
 
-  $(".breed-name").click(function () {
-    searchBooks($(this));
-    $("#book-results").empty();
-    currentBookCount = 0;
-  });
-});

@@ -28,6 +28,8 @@ We want to give the user a great head start in preparation for a new fur family 
 
 
 ## Mock-Up
+
+=======
 ![GitHub Logo](/Assets/ScreenShot.PNG)
 
 
