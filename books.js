@@ -78,14 +78,8 @@ $(document).ready(function () {
   $(".breed-name").click(function () {
     // console.log($(input).val());
     // searchBooks($(input).val());
-    searchBooks($(this).val());
+    searchBooks($(this).text());
     $("#book-results").empty();
     currentBookCount = 0;
   });
 });
-
-// this is the html i used to append the js
-
-// <div class="container">
-// <div class="row" id="book-results"></div>
-// </div>
