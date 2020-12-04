@@ -199,12 +199,12 @@ $(document).ready(function () {
             function dogImgCard(breedImg) {
                 var card = $("<div>").addClass("img-card");
                 var cardBody = $("<div>").addClass("img-card-body");
-                // var image = 
+               
                 var dogImage = $("<img>").width(300).height(300).addClass("dog-image").attr("src", breedImg);
                 var dogBtnName = $("<button>").addClass("breed-name").text(currentDogBreed);
-                $(".quiz-results").click(function () {
+                $(".breed-name").click(function () {
                     console.log("hello")
-                    searchBooks($(this));
+                    searchBooks($(this).text());
                     $("#book-results").empty();
                     currentBookCount = 0;
                   });
